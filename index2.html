@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    <title>Angular Routing</title>
+    <style>
+        .flex-container{
+            display: flex;
+            background-color: #f1F;
+        }
+        .flex-container>div{
+            background-color: #f1f1f1;
+        margin: 10px;
+        padding: 20px;
+        font-size: 30px;
+        width: 22%;
+        }
+        a{
+            text-decoration: none;
+            text-align: center;
+        }
+        .view{
+            color: red;
+            background-color: #111;
+        }
+    </style>
+</head>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+<h1><a href="#/!">Knowledge Box</a></h1>
+<div class="flex-container">
+    <div>   
+    <a href="#!banana">Banana</a>
+    </div>
+    <div>
+    <a href="#!tomato">Tomato</a></div>
+    <div>
+    <a href="#!milk">Milk</a></div>
+    <div>
+    <a href="#!carrot">Carrot</a></div>
+    <div>
+    <a href="#!greenveg">Green Veg</a></div>
+    <div>
+    <a href="#!egg">Egg</a></div>
+</div>
+
+<div ng-view class="view"></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        template : "<h1>Hello</h1><p>Click on the links to check the content</p>"
+    })
+    .when("/banana", {
+        template : "<h1>Banana</h1><p>Bananas contain around 75% water.</p>"
+    })
+    .when("/tomato", {
+        template : "<h1>Tomato</h1><p>Tomatoes contain around 95% water.</p>"
+    })
+    .when("/milk",{
+        template : "<h1>Milk</h1><p>Healthy bones. Milk is an excellent source of calcium, which is an essential mineral for good bone</p>"
+    })
+    .when("/carrot",{
+        template : "<h1>Carrot</h1><p>It is crunchy, tasty, and highly nutritious. Carrots are a particularly good source of beta carotene, fiber, vitamin K1, potassium, and antioxidants ( 1 ).</p>"
+    })
+    .when("/greenveg",{
+        template : "<h1>Green Veg</h1><p>Green vegetables are rich in vitamin A – good for building your body's natural defences, vitamin C for healthy skin and bones and vitamin K to help your body heal itself quickly when necessary</p>"
+    })
+    .when("/egg",{
+        template : "<h1>Egg</h1><p>Eggs are a very good source of inexpensive, high-quality protein. More than half the protein of an egg is found in the egg white, which also includes vitamin B2 and lower amounts of fat than the yolk</p>"
+    })
+});
+</script>
+
+</body>
+</html>
